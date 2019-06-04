@@ -1,0 +1,31 @@
+
+create folder named as dockerdemo/db
+
+create file named as Dockerfile inside db folder
+
+_______________Content of Dockerfile________________________________________
+
+FROM mysql:5.5
+
+# set the root password to password
+ENV MYSQL_ROOT_PASSWORD=manager
+
+# open the port 3306
+EXPOSE 3306
+___________________________________________________________________________
+
+docker build . -t mydb
+
+docker run -d -p 3307:3306 mydb
+
+mysql -u root --port=3307 --protocol=tcp -p
+
+create database sunbeam_devops;
+
+use sunbeam_devops;
+
+create table product(id int auto_increment primary key, title varchar(50), description varchar(150), price float(5,2));
+
+insert into product values(1,"Samsung","Mobile Phone",999.99);
+
+select * from product;

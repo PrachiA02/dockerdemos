@@ -1,0 +1,17 @@
+
+ng build --prod 
+
+_________Content of Dockerfile___________________________________
+
+FROM ubuntu
+RUN apt-get update && apt-get install -y apache2
+EXPOSE 80
+COPY ./dist/client /var/www/html
+CMD apachectl -D FOREGROUND
+__________________________________________________________________
+
+docker build . -t myclient
+
+docker run -d -p 8888:80 myclient
+
+Go to browser => localhost:8888

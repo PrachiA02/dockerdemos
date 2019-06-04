@@ -1,0 +1,20 @@
+
+_____________Content of Dockerfile________________________________
+FROM node
+
+RUN mkdir /code
+
+WORKDIR /code
+
+COPY . .
+
+EXPOSE 3000
+
+CMD node server.js
+___________________________________________________________________
+
+BUILD > docker build . -t myserver
+
+RUN > docker run -d -p 3000:3000 myserver
+
+POSTMAN URL > localhost:3000/product

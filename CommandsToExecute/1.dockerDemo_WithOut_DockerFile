@@ -1,0 +1,38 @@
+docker pull ubuntu
+
+docker create <imageID>
+
+docker start <containerID> 
+
+docker start -i <contID>
+
+***run = create + start
+
+docker run -it ubuntu /bin/bash
+__________________________________________________________________
+
+$ docker run -it -p 8085:80 <imgID> /bin/bash
+
+$ apt-get update
+
+$ apt-get apache2
+
+$ service apache2 start
+
+Go to browser and put URL as localhost:8085 ***this will show default page of apache
+_________________________________________________________________________________________
+
+$ docker run -it -p 8085:80 -v /home/akash/dockerdemo/client/website:/var/www/html ubuntu /bin/bash
+
+$ apt-get update
+
+$ apt-get apache2
+
+$ service apache2 start
+
+Go to browser and put URL as 
+	
+localhost:8085		   ***this will show default page of apache
+
+localhost:8085/demo.html   ***this will show demo.html from container which is mapped to locals /home/akash/dockerdemo/client/website/demo.html
+

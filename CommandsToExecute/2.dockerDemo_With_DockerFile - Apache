@@ -1,0 +1,23 @@
+
+_______________Content of Dockerfile________________________________________
+
+FROM ubuntu
+#FROM 200.0.1.1:5000/ubuntu
+
+RUN apt-get update && apt-get install -y apache2
+
+EXPOSE 80
+
+COPY ./website/ /var/www/html/
+
+CMD apachectl -D FOREGROUND
+___________________________________________________________________________
+
+OPEN TERMINAL in client1
+
+docker build . -t myclient
+
+docker run -d -p 8080:80 myclient
+
+docker run -d -p 8080:80 -v /home/akash/dockerdemo/client/website:/var/www/html myclient
+
